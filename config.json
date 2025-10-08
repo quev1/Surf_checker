@@ -1,0 +1,14 @@
+{
+  "spot": {
+    "name": "Figueira da Foz",
+    "lat": 40.148817,
+    "lng": -8.868
+  },
+  "ideal_conditions": {
+    "swell_height_min": 1.0,
+    "swell_height_max": 2.5,
+    "swell_period_min": 8,
+    "wind_speed_max": 15,
+    "wind_direction_good": ["N", "NE", "NW"]
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Prévisions surf pour {{ spot.name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f6f8fa; }
+        h1 { color: #0077b6; }
+        table { border-collapse: collapse; width: 80%; margin: 2em auto; background: #fff; }
+        th, td { border: 1px solid #ccc; padding: 0.7em; text-align: center; }
+        th { background: #e0f7fa; }
+        tr:nth-child(even) { background: #f1f1f1; }
+    </style>
+</head>
+<body>
+    <h1>Prévisions surf pour {{ spot.name }}</h1>
+    <table>
+        <tr>
+            <th>Jour</th>
+            <th>Période</th>
+            <th>Hauteur vague (m)</th>
+            <th>Période vague (s)</th>
+            <th>Direction vague</th>
+            <th>Score</th>
+        </tr>
+        {% for day, periods in table.items() %}
+            {% for period, r in periods.items() %}
+            <tr>
+                <td>{{ day }}</td>
+                <td>{{ period }}</td>
+                <td>{{ '%.1f'|format(r.wave_height) }}</td>
+                <td>{{ '%.1f'|format(r.wave_period) }}</td>
+                <td>{{ r.wave_dir or '-' }}</td>
+                <td>{{ r.score }}</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>
